@@ -1,0 +1,29 @@
+[Unit]
+Description=RATS Client 
+After=network.target
+Wants=network.target
+# Add any other services your app depends on:
+# After=mysql.service
+
+[Service]
+Type=simple
+User=rats
+#Group=myappgroup
+#ExecStartPre=/usr/local/bin/check-config.sh
+ConditionPathExists=/tmp/device_info.json
+ExecStart=RATS_Client
+StandardOutput=append:/var/log/ratsclient.log
+StandardError=inherit 
+WorkingDirectory=~/RATS/Backend/RATS_Client
+Restart=always
+# Restart service after 10 seconds if the app crashes
+RestartSec=10
+#Environment="VAR1=value1" "VAR2=value2"
+# Other useful directives:
+# EnvironmentFile=-/path/to/environment/variables/file
+# StandardOutput=syslog
+# StandardError=syslog
+# SyslogIdentifier=myapp
+
+[Install]
+WantedBy=multi-user.target

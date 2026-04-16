@@ -1,0 +1,27 @@
+[Unit]
+Description=RATS Server 
+After=network.target mosquitto.service
+Wants=network.target
+# Add any other services your app depends on:
+# After=mysql.service
+
+[Service]
+Type=simple
+User=rats
+#Group=myappgroup
+ExecStart=RATS_Server
+StandardOutput=append:/var/log/rats.log
+StandardError=inherit 
+WorkingDirectory=/home/rats/RATS/Backend/RATS_Server
+Restart=always
+# Restart service after 10 seconds if the app crashes
+RestartSec=10
+#Environment="VAR1=value1" "VAR2=value2"
+# Other useful directives:
+# EnvironmentFile=-/path/to/environment/variables/file
+# StandardOutput=syslog
+# StandardError=syslog
+# SyslogIdentifier=myapp
+
+[Install]
+WantedBy=multi-user.target

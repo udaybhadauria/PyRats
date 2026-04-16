@@ -1,0 +1,653 @@
+{
+  "test_groups": {
+    "All": [
+      {
+        "id": "legacy_0",
+        "legacy_test_id": 0,
+        "name": "Private WiFi Validation",
+        "description": "Legacy LAN test",
+        "group": "All",
+        "groups": [
+          "All",
+          "LAN",
+          "WiFi",
+          "Sprint Nightly"
+        ],
+        "test_type": "LAN",
+        "lan_app": "PrivateSSID",
+        "lan_command": "bash {{TESTAPPS}}/PrivateSSID/PrivateSSID.sh %d #MAC",
+        "wan_app": "NA",
+        "wan_command": "NA",
+        "on_device_test": false,
+        "connection_lost": "Not_Expected",
+        "timeout": 300,
+        "legacy": true
+      },
+      {
+        "id": "legacy_1",
+        "legacy_test_id": 1,
+        "name": "Device Prioritization Validation",
+        "description": "Legacy LAN test",
+        "group": "All",
+        "groups": [
+          "All",
+          "LAN",
+          "FW",
+          "Sprint Nightly"
+        ],
+        "test_type": "LAN",
+        "lan_app": "DevicePrioritization",
+        "lan_command": "sudo python3 {{TESTAPPS}}/DevicePrioritization/DevicePrioritization.py %d #MAC",
+        "wan_app": "NA",
+        "wan_command": "NA",
+        "on_device_test": false,
+        "connection_lost": "Not_Expected",
+        "timeout": 300,
+        "legacy": true
+      },
+      {
+        "id": "legacy_2",
+        "legacy_test_id": 2,
+        "name": "Connectivity Score Check",
+        "description": "Legacy LAN test",
+        "group": "All",
+        "groups": [
+          "All",
+          "LAN",
+          "Sprint Nightly"
+        ],
+        "test_type": "LAN",
+        "lan_app": "Connectivity",
+        "lan_command": "sudo python3 {{TESTAPPS}}/Connectivity/Connectivity.py %d #MAC",
+        "wan_app": "NA",
+        "wan_command": "NA",
+        "on_device_test": false,
+        "connection_lost": "Not_Expected",
+        "timeout": 300,
+        "legacy": true
+      },
+      {
+        "id": "legacy_3",
+        "legacy_test_id": 3,
+        "name": "Port Scan Validation",
+        "description": "Legacy WAN test",
+        "group": "All",
+        "groups": [
+          "All",
+          "WAN",
+          "Security",
+          "FW",
+          "Sprint Nightly"
+        ],
+        "test_type": "WAN",
+        "lan_app": "NA",
+        "lan_command": "NA",
+        "wan_app": "PortScan",
+        "wan_command": "bash {{TESTAPPS}}/PortScan/PortScan.sh %d #MAC #WAN_IP",
+        "on_device_test": false,
+        "connection_lost": "Not_Expected",
+        "timeout": 300,
+        "legacy": true
+      },
+      {
+        "id": "legacy_4",
+        "legacy_test_id": 4,
+        "name": "Client Speed Test",
+        "description": "Legacy LAN test",
+        "group": "All",
+        "groups": [
+          "All",
+          "LAN",
+          "WiFi",
+          "Sprint Nightly"
+        ],
+        "test_type": "LAN",
+        "lan_app": "SpeedTest",
+        "lan_command": "sh {{TESTAPPS}}/SpeedTest/SpeedTest.sh %d #MAC",
+        "wan_app": "NA",
+        "wan_command": "NA",
+        "on_device_test": false,
+        "connection_lost": "Not_Expected",
+        "timeout": 300,
+        "legacy": true
+      },
+      {
+        "id": "legacy_5",
+        "legacy_test_id": 5,
+        "name": "Port Forward Validation - HTTP",
+        "description": "Legacy BOTH test",
+        "group": "All",
+        "groups": [
+          "All",
+          "LAN",
+          "WAN",
+          "FW",
+          "Sprint Nightly"
+        ],
+        "test_type": "BOTH",
+        "lan_app": "PortForward",
+        "lan_command": "sudo python3 {{TESTAPPS}}/PortForward/web_traffic.py %d #MAC #MGMNT_SERVER_IP",
+        "wan_app": "PortForward",
+        "wan_command": "sudo python3 {{TESTAPPS}}/PortForward/web_access.py %d #MAC #LAN_CLIENT_IP #WAN_IP",
+        "on_device_test": false,
+        "connection_lost": "Not_Expected",
+        "timeout": 300,
+        "legacy": true
+      },
+      {
+        "id": "legacy_7",
+        "legacy_test_id": 7,
+        "name": "Cujo SafeBrowsing Validation",
+        "description": "Legacy LAN test",
+        "group": "All",
+        "groups": [
+          "All",
+          "LAN",
+          "FW"
+        ],
+        "test_type": "LAN",
+        "lan_app": "CujoSafeBrowsing",
+        "lan_command": "bash {{TESTAPPS}}/CujoSafeBrowsing/CujoSafeBrowsing.sh %d #MAC",
+        "wan_app": "NA",
+        "wan_command": "NA",
+        "on_device_test": false,
+        "connection_lost": "Not_Expected",
+        "timeout": 300,
+        "legacy": true
+      },
+      {
+        "id": "legacy_8",
+        "legacy_test_id": 8,
+        "name": "Gateway Speed Test",
+        "description": "Legacy WAN test",
+        "group": "All",
+        "groups": [
+          "All",
+          "WAN",
+          "Sprint Nightly"
+        ],
+        "test_type": "WAN",
+        "lan_app": "NA",
+        "lan_command": "NA",
+        "wan_app": "GWSpeedTest",
+        "wan_command": "bash {{TESTAPPS}}/GWSpeedTest/GWSpeedTest.sh %d #MAC",
+        "on_device_test": false,
+        "connection_lost": "Not_Expected",
+        "timeout": 300,
+        "legacy": true
+      },
+      {
+        "id": "legacy_9",
+        "legacy_test_id": 9,
+        "name": "Connected Building Validation",
+        "description": "Legacy LAN test",
+        "group": "All",
+        "groups": [
+          "All",
+          "LAN",
+          "WiFi"
+        ],
+        "test_type": "LAN",
+        "lan_app": "ManagedWiFi",
+        "lan_command": "bash {{TESTAPPS}}/ManagedWiFi/ManagedWiFi.sh %d #MAC",
+        "wan_app": "NA",
+        "wan_command": "NA",
+        "on_device_test": false,
+        "connection_lost": "Not_Expected",
+        "timeout": 300,
+        "legacy": true
+      },
+      {
+        "id": "legacy_10",
+        "legacy_test_id": 10,
+        "name": "WiFi Connectivity Validation",
+        "description": "Legacy LAN test",
+        "group": "All",
+        "groups": [
+          "All",
+          "LAN",
+          "WiFi",
+          "Sprint Nightly"
+        ],
+        "test_type": "LAN",
+        "lan_app": "PrivateWiFiConn",
+        "lan_command": "bash {{TESTAPPS}}/PrivateWiFiConn/PrivateWiFiConn.sh %d #MAC",
+        "wan_app": "NA",
+        "wan_command": "NA",
+        "on_device_test": false,
+        "connection_lost": "Not_Expected",
+        "timeout": 300,
+        "legacy": true
+      },
+      {
+        "id": "legacy_11",
+        "legacy_test_id": 11,
+        "name": "DMZ Validation",
+        "description": "Legacy BOTH test",
+        "group": "All",
+        "groups": [
+          "All",
+          "LAN",
+          "WAN",
+          "Sprint Nightly"
+        ],
+        "test_type": "BOTH",
+        "lan_app": "DMZ",
+        "lan_command": "sudo python3 {{TESTAPPS}}/DMZ/dmz_traffic.py %d #MAC #MGMNT_SERVER_IP",
+        "wan_app": "DMZ",
+        "wan_command": "sudo python3 {{TESTAPPS}}/DMZ/dmz_validation.py %d #MAC #LAN_CLIENT_IP #WAN_IP",
+        "on_device_test": false,
+        "connection_lost": "Not_Expected",
+        "timeout": 300,
+        "legacy": true
+      },
+      {
+        "id": "legacy_12",
+        "legacy_test_id": 12,
+        "name": "Port Forward Validation - SSH",
+        "description": "Legacy BOTH test",
+        "group": "All",
+        "groups": [
+          "All",
+          "LAN",
+          "WAN"
+        ],
+        "test_type": "BOTH",
+        "lan_app": "SSHPortForward",
+        "lan_command": "sudo python3 {{TESTAPPS}}/SSHPortForward/ssh_traffic.py %d #MAC #MGMNT_SERVER_IP",
+        "wan_app": "SSHPortForward",
+        "wan_command": "sudo python3 {{TESTAPPS}}/SSHPortForward/ssh_connect.py %d #MAC #LAN_CLIENT_IP #WAN_IP",
+        "on_device_test": false,
+        "connection_lost": "Not_Expected",
+        "timeout": 300,
+        "legacy": true
+      },
+      {
+        "id": "legacy_13",
+        "legacy_test_id": 13,
+        "name": "Device Pause Validation",
+        "description": "Legacy BOTH test",
+        "group": "All",
+        "groups": [
+          "All",
+          "LAN",
+          "FW",
+          "Sprint Nightly"
+        ],
+        "test_type": "BOTH",
+        "lan_app": "Aker",
+        "lan_command": "bash {{TESTAPPS}}/Aker/Aker_Lan.sh %d #MAC",
+        "wan_app": "Aker",
+        "wan_command": "bash {{TESTAPPS}}/Aker/Aker_Wan.sh %d #MAC #LAN_CLIENT_MAC",
+        "on_device_test": false,
+        "connection_lost": "Expected",
+        "timeout": 300,
+        "legacy": true
+      },
+      {
+        "id": "legacy_15",
+        "legacy_test_id": 15,
+        "name": "Dynamic PortMapping Validation",
+        "description": "Legacy BOTH test",
+        "group": "All",
+        "groups": [
+          "All",
+          "LAN",
+          "FW",
+          "WAN"
+        ],
+        "test_type": "BOTH",
+        "lan_app": "DynamicPortMapping",
+        "lan_command": "sudo python3 {{TESTAPPS}}/DynamicPortMapping/dynamicPM_add.py %d #MAC #MGMNT_SERVER_IP",
+        "wan_app": "DynamicPortMapping",
+        "wan_command": "sudo python3 {{TESTAPPS}}/DynamicPortMapping/dynamicPM_validation.py %d #MAC #WAN_IP",
+        "on_device_test": false,
+        "connection_lost": "Not_Expected",
+        "timeout": 300,
+        "legacy": true
+      },
+      {
+        "id": "legacy_16",
+        "legacy_test_id": 16,
+        "name": "XMBoost RA Validation",
+        "description": "Legacy LAN test",
+        "group": "All",
+        "groups": [
+          "All",
+          "FW",
+          "XMBoost"
+        ],
+        "test_type": "LAN",
+        "lan_app": "XMBoostRA",
+        "lan_command": "sudo python3 {{TESTAPPS}}/XMBoostRA/XMBoostRA.py %d #MAC",
+        "wan_app": "NA",
+        "wan_command": "NA",
+        "on_device_test": false,
+        "connection_lost": "Not_Expected",
+        "timeout": 300,
+        "legacy": true
+      },
+      {
+        "id": "legacy_17",
+        "legacy_test_id": 17,
+        "name": "XMBoost Source Port Validation",
+        "description": "Legacy BOTH test",
+        "group": "All",
+        "groups": [
+          "All",
+          "FW",
+          "XMBoost"
+        ],
+        "test_type": "BOTH",
+        "lan_app": "XMBoostSourcePort",
+        "lan_command": "sudo python3 {{TESTAPPS}}/XMBoostSourcePort/serveraccess.py %d #MAC #MGMNT_SERVER_IP #MGMNT_SERVER_IP6",
+        "wan_app": "XMBoostSourcePort",
+        "wan_command": "sudo python3 {{TESTAPPS}}/XMBoostSourcePort/srcPortValidation.py %d #MAC #LAN_CLIENT_MAC #WAN_IP",
+        "on_device_test": false,
+        "connection_lost": "Not_Expected",
+        "timeout": 300,
+        "legacy": true
+      },
+      {
+        "id": "legacy_18",
+        "legacy_test_id": 18,
+        "name": "XMBoost Speed Test Validation",
+        "description": "Legacy LAN test",
+        "group": "All",
+        "groups": [
+          "All",
+          "FW",
+          "XMBoost"
+        ],
+        "test_type": "LAN",
+        "lan_app": "XMBoostSpeedTest",
+        "lan_command": "sudo python3 {{TESTAPPS}}/XMBoostSpeedTest/XMBoostSpeedtest.py %d #MAC",
+        "wan_app": "NA",
+        "wan_command": "NA",
+        "on_device_test": false,
+        "connection_lost": "Not_Expected",
+        "timeout": 300,
+        "legacy": true
+      },
+      {
+        "id": "legacy_19",
+        "legacy_test_id": 19,
+        "name": "Gateway DHCPClientv4 Validation",
+        "description": "Legacy WAN test",
+        "group": "All",
+        "groups": [
+          "All",
+          "WAN",
+          "Sprint Nightly"
+        ],
+        "test_type": "WAN",
+        "lan_app": "NA",
+        "lan_command": "NA",
+        "wan_app": "GWDHCPClientv4",
+        "wan_command": "sudo python3 {{TESTAPPS}}/GWDHCPClientv4/DHCPClientv4Test.py %d #MAC",
+        "on_device_test": true,
+        "connection_lost": "Not_Expected",
+        "timeout": 300,
+        "legacy": true
+      },
+      {
+        "id": "legacy_20",
+        "legacy_test_id": 20,
+        "name": "Gateway DHCPClientv6 Validation",
+        "description": "Legacy WAN test",
+        "group": "All",
+        "groups": [
+          "All",
+          "WAN",
+          "Sprint Nightly"
+        ],
+        "test_type": "WAN",
+        "lan_app": "NA",
+        "lan_command": "NA",
+        "wan_app": "GWDHCPClientv6",
+        "wan_command": "sudo python3 {{TESTAPPS}}/GWDHCPClientv6/DHCPClientv6Test.py %d #MAC",
+        "on_device_test": true,
+        "connection_lost": "Not_Expected",
+        "timeout": 300,
+        "legacy": true
+      },
+      {
+        "id": "legacy_21",
+        "legacy_test_id": 21,
+        "name": "XMBoost PortForward Validation",
+        "description": "Legacy BOTH test",
+        "group": "All",
+        "groups": [
+          "All",
+          "FW",
+          "XMBoost"
+        ],
+        "test_type": "BOTH",
+        "lan_app": "XMBoostPortForward",
+        "lan_command": "sudo python3 {{TESTAPPS}}/XMBoostPortForward/xmPortForward_LAN.py %d #MAC #MGMNT_SERVER_IP",
+        "wan_app": "XMBoostPortForward",
+        "wan_command": "sudo python3 {{TESTAPPS}}/XMBoostPortForward/xmPortForward_WAN.py %d #MAC #LAN_CLIENT_IP #WAN_IP",
+        "on_device_test": false,
+        "connection_lost": "Not_Expected",
+        "timeout": 300,
+        "legacy": true
+      },
+      {
+        "id": "legacy_22",
+        "legacy_test_id": 22,
+        "name": "XMBoost Device Prioritization Validation",
+        "description": "Legacy LAN test",
+        "group": "All",
+        "groups": [
+          "All",
+          "FW",
+          "XMBoost"
+        ],
+        "test_type": "LAN",
+        "lan_app": "XMBoostDevicePrioritization",
+        "lan_command": "sudo python3 {{TESTAPPS}}/XMBoostDevicePrioritization/xmDevicePrioritization.py %d #MAC",
+        "wan_app": "NA",
+        "wan_command": "NA",
+        "on_device_test": false,
+        "connection_lost": "Not_Expected",
+        "timeout": 300,
+        "legacy": true
+      },
+      {
+        "id": "legacy_23",
+        "legacy_test_id": 23,
+        "name": "XMBoost DMZ Validation",
+        "description": "Legacy BOTH test",
+        "group": "All",
+        "groups": [
+          "All",
+          "FW",
+          "XMBoost"
+        ],
+        "test_type": "BOTH",
+        "lan_app": "XMBoostDMZ",
+        "lan_command": "sudo python3 {{TESTAPPS}}/XMBoostDMZ/xmDMZ_LAN.py %d #MAC #MGMNT_SERVER_IP",
+        "wan_app": "XMBoostDMZ",
+        "wan_command": "sudo python3 {{TESTAPPS}}/XMBoostDMZ/xmDMZ_WAN.py %d #MAC #LAN_CLIENT_IP #WAN_IP",
+        "on_device_test": false,
+        "connection_lost": "Not_Expected",
+        "timeout": 300,
+        "legacy": true
+      },
+      {
+        "id": "legacy_24",
+        "legacy_test_id": 24,
+        "name": "XMBoost Dynamic PortMapping Validation",
+        "description": "Legacy BOTH test",
+        "group": "All",
+        "groups": [
+          "All",
+          "FW",
+          "XMBoost"
+        ],
+        "test_type": "BOTH",
+        "lan_app": "XMBoostDynamicPM",
+        "lan_command": "sudo python3 {{TESTAPPS}}/XMBoostDynamicPM/xmDynamicPM_LAN.py %d #MAC #MGMNT_SERVER_IP",
+        "wan_app": "XMBoostDynamicPM",
+        "wan_command": "sudo python3 {{TESTAPPS}}/XMBoostDynamicPM/xmDynamicPM_WAN.py %d #MAC #WAN_IP",
+        "on_device_test": false,
+        "connection_lost": "Not_Expected",
+        "timeout": 300,
+        "legacy": true
+      },
+      {
+        "id": "legacy_25",
+        "legacy_test_id": 25,
+        "name": "FlowManager TCP Validation",
+        "description": "Legacy BOTH test",
+        "group": "All",
+        "groups": [
+          "All",
+          "LAN",
+          "WAN",
+          "FastPath",
+          "Sprint Nightly"
+        ],
+        "test_type": "BOTH",
+        "lan_app": "FlowManagerTCP",
+        "lan_command": "sudo python3 {{TESTAPPS}}/FlowManagerTCP/flowmanagerTCP_LAN.py %d #MAC #MGMNT_SERVER_IP #MGMNT_SERVER_IP6",
+        "wan_app": "FlowManagerTCP",
+        "wan_command": "sudo python3 {{TESTAPPS}}/FlowManagerTCP/flowmanagerTCP_WAN.py %d #MAC #WAN_IP",
+        "on_device_test": true,
+        "connection_lost": "Not_Expected",
+        "timeout": 300,
+        "legacy": true
+      },
+      {
+        "id": "legacy_26",
+        "legacy_test_id": 26,
+        "name": "FlowManager UDP Validation",
+        "description": "Legacy BOTH test",
+        "group": "All",
+        "groups": [
+          "All",
+          "LAN",
+          "WAN",
+          "FastPath",
+          "Sprint Nightly"
+        ],
+        "test_type": "BOTH",
+        "lan_app": "FlowManagerUDP",
+        "lan_command": "sudo python3 {{TESTAPPS}}/FlowManagerUDP/flowmanagerUDP_LAN.py %d #MAC #MGMNT_SERVER_IP #MGMNT_SERVER_IP6",
+        "wan_app": "FlowManagerUDP",
+        "wan_command": "sudo python3 {{TESTAPPS}}/FlowManagerUDP/flowmanagerUDP_WAN.py %d #MAC #WAN_IP",
+        "on_device_test": true,
+        "connection_lost": "Not_Expected",
+        "timeout": 300,
+        "legacy": true
+      },
+      {
+        "id": "legacy_27",
+        "legacy_test_id": 27,
+        "name": "LANtoWAN GRE Validation",
+        "description": "Legacy BOTH test",
+        "group": "All",
+        "groups": [
+          "All",
+          "LAN",
+          "WAN",
+          "Sprint Nightly"
+        ],
+        "test_type": "BOTH",
+        "lan_app": "LANtoWANGRE",
+        "lan_command": "sudo python3 {{TESTAPPS}}/LANtoWANGRE/gre_LAN.py %d #MAC #MGMNT_SERVER_IP #LAN_CLIENT_IP",
+        "wan_app": "LANtoWANGRE",
+        "wan_command": "sudo python3 {{TESTAPPS}}/LANtoWANGRE/gre_WAN.py %d #MAC #LAN_CLIENT_IP #WAN_IP",
+        "on_device_test": false,
+        "connection_lost": "Not_Expected",
+        "timeout": 300,
+        "legacy": true
+      },
+      {
+        "id": "legacy_28",
+        "legacy_test_id": 28,
+        "name": "Basic WFO Validation",
+        "description": "Legacy WAN test",
+        "group": "All",
+        "groups": [
+          "All",
+          "WFO",
+          "Sprint Nightly"
+        ],
+        "test_type": "WAN",
+        "lan_app": "NA",
+        "lan_command": "NA",
+        "wan_app": "BasicWFO",
+        "wan_command": "sudo bash {{TESTAPPS}}/BasicWFO/BasicWFO.sh %d #MAC",
+        "on_device_test": false,
+        "connection_lost": "Expected",
+        "timeout": 300,
+        "legacy": true
+      },
+      {
+        "id": "legacy_29",
+        "legacy_test_id": 29,
+        "name": "Basic GFO Validation",
+        "description": "Legacy WAN test",
+        "group": "All",
+        "groups": [
+          "All",
+          "GFO",
+          "Sprint Nightly"
+        ],
+        "test_type": "WAN",
+        "lan_app": "NA",
+        "lan_command": "NA",
+        "wan_app": "BasicGFO",
+        "wan_command": "sudo bash {{TESTAPPS}}/BasicGFO/BasicGFO.sh %d #MAC",
+        "on_device_test": false,
+        "connection_lost": "Expected",
+        "timeout": 300,
+        "legacy": true
+      }
+    ],
+    "TEST": [
+      {
+        "id": "legacy_6",
+        "legacy_test_id": 6,
+        "name": "LAN-WAN Test",
+        "description": "Legacy BOTH test",
+        "group": "TEST",
+        "groups": [
+          "TEST",
+          "Sprint Nightly"
+        ],
+        "test_type": "BOTH",
+        "lan_app": "LAN2WAN",
+        "lan_command": "ls {{TESTAPPS}}/LAN2WAN/LAN.py %d #MAC #WAN_IP #MGMNT_SERVER_IP",
+        "wan_app": "LAN2WAN",
+        "wan_command": "ls {{TESTAPPS}}/LAN2WAN/WAN.py %d #MAC #WAN_IP #LAN_CLIENT_MAC #LAN_CLIENT_IP #MGMNT_SERVER_IP",
+        "on_device_test": false,
+        "connection_lost": "Expected",
+        "timeout": 300,
+        "legacy": true
+      }
+    ],
+    "BridgeMode": [
+      {
+        "id": "legacy_14",
+        "legacy_test_id": 14,
+        "name": "Bridge Mode Validation",
+        "description": "Legacy BOTH test",
+        "group": "BridgeMode",
+        "groups": [
+          "BridgeMode"
+        ],
+        "test_type": "BOTH",
+        "lan_app": "BridgeMode",
+        "lan_command": "bash {{TESTAPPS}}/BridgeMode/BridgeMode_LAN.sh %d #MAC",
+        "wan_app": "BridgeMode",
+        "wan_command": "bash {{TESTAPPS}}/BridgeMode/BridgeMode_WAN.sh %d #MAC",
+        "on_device_test": false,
+        "connection_lost": "Expected",
+        "timeout": 300,
+        "legacy": true
+      }
+    ]
+  }
+}

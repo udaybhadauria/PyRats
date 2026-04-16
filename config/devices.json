@@ -1,0 +1,26 @@
+{
+  "devices": [
+    {
+      "id": "device-001",
+      "name": "Gateway-01",
+      "mac_address": "00:11:22:33:44:55",
+      "ip_address": "192.168.0.1",
+      "device_type": "gateway",
+      "location": "Lab 1",
+      "status": "online",
+      "created_at": "2024-01-01T00:00:00",
+      "updated_at": "2024-01-01T00:00:00"
+    },
+    {
+      "id": "device-002",
+      "name": "Gateway-02",
+      "mac_address": "00:11:22:33:44:66",
+      "ip_address": "192.168.0.2",
+      "device_type": "gateway",
+      "location": "Lab 2",
+      "status": "offline",
+      "created_at": "2024-01-01T00:00:00",
+      "updated_at": "2024-01-01T00:00:00"
+    }
+  ]
+}

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RATS - Robust Automated Test System</title>
+    <link rel="icon" type="image/png" href="assets/logo.png">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app">
+        <nav class="navbar">
+            <div class="navbar-container">
+                <div class="logo-section">
+                    <img src="assets/logo.png" alt="RATS Logo" class="logo">
+                    <h1>RATS</h1>
+                </div>
+                <div class="navbar-right">
+                    <div class="environment-selector">
+                        <label for="env-select">Environment:</label>
+                        <select id="env-select">
+                            <option value="Prod">Production</option>
+                            <option value="Dev">Development</option>
+                        </select>
+                    </div>
+                    <button id="status-btn" class="status-indicator" title="System Status">
+                        <span class="status-dot"></span>
+                        <span>Status</span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <main class="container">
+            <!-- Software Version Section -->
+            <section class="version-section">
+                <div class="version-info">
+                    <div class="version-item">
+                        <label>Current Version:</label>
+                        <span id="current-version">Loading...</span>
+                    </div>
+                    <div class="version-item">
+                        <label>Latest Version:</label>
+                        <span id="latest-version">Loading...</span>
+                    </div>
+                </div>
+                <div class="version-actions">
+                    <div class="commit-action">
+                        <input type="text" id="commit-id" placeholder="Enter Commit ID" class="commit-input">
+                        <button id="upgrade-commit-btn" class="btn btn-secondary">Upgrade to Commit</button>
+                    </div>
+                    <button id="upgrade-latest-btn" class="btn btn-primary" style="display:none;">Upgrade Software</button>
+                </div>
+                <div id="upgrade-status" class="status-message"></div>
+            </section>
+
+            <!-- Device Selection Section -->
+            <section class="device-section">
+                <h2>Select Device</h2>
+                <div class="device-selector-container">
+                    <select id="device-select" class="selector">
+                        <option value="">-- Select a device --</option>
+                    </select>
+                    <span id="device-status" class="device-status unknown">Unknown</span>
+                    <button id="refresh-devices" class="btn btn-small">Refresh</button>
+                </div>
+                <div id="device-info" class="device-info-box hidden">
+                    <h3>Device Information</h3>
+                    <div id="device-details"></div>
+                </div>
+            </section>
+
+            <!-- Test Selection Section -->
+            <section class="test-section">
+                <h2>Select Tests</h2>
+                
+                <div class="test-group-selector">
+                    <h3>Test Groups</h3>
+                    <div id="test-groups" class="test-groups-container">
+                        <!-- Dynamically populated -->
+                    </div>
+                </div>
+
+                <div class="test-case-selector">
+                    <h3>Test Cases</h3>
+                    <div id="test-cases" class="test-cases-grid">
+                        <!-- Dynamically populated -->
+                    </div>
+                </div>
+
+                <div class="test-actions">
+                    <button id="select-all-btn" class="btn btn-secondary">Select All</button>
+                    <button id="deselect-all-btn" class="btn btn-secondary">Deselect All</button>
+                    <button id="start-tests-btn" class="btn btn-primary btn-large">Start Tests</button>
+                </div>
+            </section>
+
+            <!-- Test Execution Section -->
+            <section id="execution-section" class="execution-section hidden">
+                <h2>Test Execution Progress</h2>
+                <div class="execution-progress">
+                    <div class="progress-info">
+                        <span id="progress-text">0 of 0 tests completed</span>
+                        <span id="execution-status" class="execution-status">Running...</span>
+                    </div>
+                    <div class="progress-bar-container">
+                        <div id="progress-bar" class="progress-bar" style="width: 0%"></div>
+                    </div>
+                </div>
+
+                <div id="test-results" class="test-results">
+                    <!-- Dynamically populated with test results -->
+                </div>
+
+                <div class="execution-actions">
+                    <button id="cancel-tests-btn" class="btn btn-secondary" style="display:none;">Cancel Tests</button>
+                    <button id="view-report-btn" class="btn btn-primary" style="display:none;">View Report</button>
+                </div>
+            </section>
+
+            <!-- Reports Section -->
+            <section class="reports-section">
+                <h2>Test Reports</h2>
+                <div id="reports-list" class="reports-list">
+                    <!-- Dynamically populated with past reports -->
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p>&copy; 2024 RATS - Robust Automated Test System</p>
+            <p><a href="#" id="api-docs-link">API Documentation</a> | <a href="#" id="help-link">Help</a></p>
+        </footer>
+    </div>
+
+    <!-- Modal for status details -->
+    <div id="status-modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>System Status</h2>
+            <div id="status-details" class="status-details">
+                <!-- Dynamically populated -->
+            </div>
+        </div>
+    </div>
+
+    <script src="api.js"></script>
+    <script src="ui.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

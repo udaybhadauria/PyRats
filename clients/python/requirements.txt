@@ -1,0 +1,3 @@
+"""RATS Python Client requirements"""
+
+paho-mqtt==1.7.0

@@ -1,0 +1,76 @@
+version: '3.8'
+
+services:
+  mqtt-broker:
+    image: eclipse-mosquitto:2-alpine
+    container_name: rats-mosquitto
+    ports:
+      - "1883:1883"
+      - "9001:9001"
+    volumes:
+      - ./config/mosquitto.conf:/mosquitto/config/mosquitto.conf:ro
+      - mqtt-data:/mosquitto/data
+    networks:
+      - rats-network
+    healthcheck:
+      test: ["CMD", "mosquitto_sub", "-h", "localhost", "-t", "test", "-C", "1", "-E"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: rats-backend
+    ports:
+      - "8888:8888"
+    environment:
+      - DEBUG=false
+      - LOG_LEVEL=INFO
+      - MQTT_BROKER=rats-mosquitto
+      - MQTT_PORT=1883
+      - CONFIG_DIR=/app/config
+      - LOG_DIR=/app/logs
+      - REPORT_DIR=/app/reports
+    volumes:
+      - ./config:/app/config
+      - ./logs:/app/logs
+      - ./reports:/app/reports
+    depends_on:
+      mqtt-broker:
+        condition: service_healthy
+    networks:
+      - rats-network
+    healthcheck:
+      test: ["CMD", "python", "-c", "import requests; requests.get('http://localhost:8888/api/health/live')"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: rats-frontend
+    ports:
+      - "80:80"
+      - "443:443"
+    depends_on:
+      - backend
+    networks:
+      - rats-network
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    restart: unless-stopped
+
+volumes:
+  mqtt-data:
+
+networks:
+  rats-network:
+    driver: bridge

@@ -1,0 +1,4 @@
+REPO_URL=github.com/rdkcentral/RATS.git
+URL_RELEASE_CHECK=https://api.github.com/repos/rdkcentral/RATS/releases/latest
+DEV_REPO_URL=github.com/sshriv323/RATS-Dev.git
+DEV_URL_RELEASE_CHECK=https://api.github.com/repos/sshriv323/RATS/releases/latest
