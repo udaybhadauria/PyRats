@@ -94,9 +94,16 @@ app.include_router(devices_router)
 app.include_router(tests_router)
 app.include_router(system_router)
 
+# Mount static files (frontend)
+frontend_path = Path(__file__).parent.parent.parent / "frontend"
+if frontend_path.exists():
+    app.mount("/", StaticFiles(directory=str(frontend_path), html=True), name="static")
+else:
+    logger.warning(f"Frontend directory not found at {frontend_path}")
 
-# Root endpoint
-@app.get("/")
+
+# Root endpoint - only if frontend not available
+@app.get("/", include_in_schema=False)
 async def root():
     """Root endpoint"""
     return {
