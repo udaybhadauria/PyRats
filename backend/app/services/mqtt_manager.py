@@ -5,7 +5,7 @@ Replaces Paho C library with async Python implementation
 
 import asyncio
 import json
-from typing import Callable, Optional, Dict, Any
+from typing import Callable, Optional, Dict, Any, Union
 import paho.mqtt.client as mqtt
 from app.settings import settings
 from app.utils import logger
@@ -113,7 +113,7 @@ class MQTTManager:
     async def publish(
         self,
         topic: str,
-        message: Dict[str, Any] | str,
+        message: Union[Dict[str, Any], str],
         qos: int = None
     ) -> bool:
         """

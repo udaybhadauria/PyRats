@@ -1,7 +1,3 @@
-"""
-RATS backend requirements
-"""
-
 # Core
 fastapi==0.104.1
 uvicorn[standard]==0.24.0
@@ -11,7 +7,7 @@ pydantic-settings==2.1.0
 # Async & Networking
 aiohttp==3.9.0
 httpx==0.25.0
-paho-mqtt==1.7.0
+paho-mqtt==2.1.0
 
 # Database (optional, for future use)
 # sqlalchemy==2.0.0
